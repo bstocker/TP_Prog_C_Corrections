@@ -4,7 +4,7 @@ void main() {
   int Lenght1 = 0;
 
   for(int i = 0; i < 1000; i++) {
-       if(chaine1[i]=="\0"){
+       if(chaine1[i]=='\0'){
         Lenght1=i;
         breack; 
     }
