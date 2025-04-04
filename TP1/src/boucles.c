@@ -1,16 +1,31 @@
 #include <stdio.h>
 
 int main() {
-    int compteur = 5; 
+    int n = 5; // Hauteur de la pyramide
+    int i, j;
 
-    for (int i = 1; i <= compteur; i++) {
-        for (int j = 1; j <= i; j++) {
-            if (j == 1 || j == i || i == 1 || i == compteur) {
-                printf("*");
-            } else {
-                printf("#");
-            }
+    for (i = 1; i <= n; i++) {
+        // Affichage des espaces pour centrer
+        for (j = 1; j <= n - i; j++) {
+            printf(" ");
         }
+
+        // Affichage des nombres croissants de 1 à i
+        for (j = 1; j <= i; j++) {
+            printf("%d", j);
+        }
+
+        // Affichage des nombres décroissants de i-1 à 1
+        for (j = i - 1; j >= 1; j--) {
+            printf("%d", j);
+        }
+
+        // Passage à la ligne suivante
         printf("\n");
     }
+
+    // Fin
+    printf("Génération de la pyramide terminée.\n");
+
+    return 0;
 }
