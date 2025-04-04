@@ -19,8 +19,17 @@ void main() {
             break; 
         }
     }
- 
-    printf("%d\n", Length1);
-    printf("%d\n", Length2);
+
+    char chaine_finale[Length1+Length2];
+
+    for (int i = 0; i < Length1; i++) {
+        chaine_finale[i]=chaine1[i];
+        }
+    }
+    for (int i = Length2; i < (Length1+Length2); i++) {
+        chaine_finale[i]=chaine2[i-Length2];
+        }
+    }
+    printf("%s", chaine_finale);
 }
 
