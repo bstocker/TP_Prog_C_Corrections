@@ -6,7 +6,7 @@ void main() {
   for(int i = 0; i < 1000; i++) {
        if(chaine1[i]=='\0'){
         Lenght1=i;
-        breack; 
+        break; 
     }
 printf("%d",Lenght1);
     
