@@ -6,20 +6,12 @@ void main() {
     int Length1 = 0;
     int Length2 = 0;
 
-    // Calcul de la longueur de chaine1
-    for (int i = 0; i < 1000; i++) {
-        if (chaine1[i] == '\0') {
-            Length1 = i;
-            break;
-        }
+    while (chaine1[Length1] != '\0') {
+        Length1++;
     }
 
-    // Calcul de la longueur de chaine2
-    for (int i = 0; i < 1000; i++) {
-        if (chaine2[i] == '\0') {
-            Length2 = i;
-            break;
-        }
+    while (chaine2[Length2] != '\0') {
+        Length2++;
     }
 
     // Déclaration de la chaîne finale avec +1 pour le '\0'
