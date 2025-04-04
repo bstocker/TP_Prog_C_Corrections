@@ -2,12 +2,12 @@
 
 void main() {
     int n = 7;
-    int a = 0, b = 1, temp;
+    int val[] = {0,1};
     printf("%d %d ", a, b);
     for(int i = 2; i < n; i++) {
-        temp = a+b;
+        temp = val[0]+val[1];
         printf("%d ", temp);
-        a=b ;
-        b = temp;     
+        val[0]=val[1];
+        val[1] = temp;     
     }
 }
