@@ -5,7 +5,7 @@ int main() {
 
     for (int i = 1; i <= compteur; i++) {
         for (int j = 1; j <= i; j++) {
-            if (j == 1 || j == compteur || i == 1 || i == compteur) {
+            if (j == 1 || j == i || i == 1 || i == compteur) {
                 printf("*");
             } else {
                 printf("#");
