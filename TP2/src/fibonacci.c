@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main() {
+void main() {
     int n = 7;
     int a = 0, b = 1, temp;
     printf("%d %d ", a, b);
@@ -10,7 +10,4 @@ int main() {
         a=b ;
         b = temp;     
     }
-
-
-    return 0;
 }
