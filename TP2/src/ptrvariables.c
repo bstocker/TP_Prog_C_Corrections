@@ -10,7 +10,7 @@ int main() {
    
   // Affichage avant manipulation
     printf("Avant manipulation :\n");
-    printf("Adresse de i  : %p, Valeur : %s\n", (void*)pi, i);
+    printf("Adresse de i  : %p, Valeur : %c\n", (void*)pi, i);
    
   // Manipulation via pointeurs
     *pi = 'B';
