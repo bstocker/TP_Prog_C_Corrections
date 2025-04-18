@@ -50,16 +50,23 @@ int renvoie_message(int client_socket_fd, char *data)
 int recois_envoie_message(int client_socket_fd, char *data)
 {
   printf("Message reçu: %s\n", data);
-  char code[10];
-  if (sscanf(data, "%9s:", code) == 1) // Assurez-vous que le format est correct
-  {
-    if (strcmp(code, "message:") == 0)
-    {
-      return renvoie_message(client_socket_fd, data);
-    }
-  }
+     int a, b, c;
 
-  return (EXIT_SUCCESS);
+    // sscanf extrait les trois premiers entiers
+    if (sscanf(data, "%d %d %d", &a, &b, &c) == 3)
+    {
+        printf("Chiffres extraits : %d, %d, %d\n", a, b, c);
+
+        // Tu peux utiliser a, b, c comme tu veux ici
+        // Par exemple envoyer une réponse, faire un calcul, etc.
+
+        return 0;
+    }
+    else
+    {
+        fprintf(stderr, "Erreur : format inattendu\n");
+        return -1;
+    }
 }
 
 /**
