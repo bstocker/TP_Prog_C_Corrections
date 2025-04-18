@@ -49,26 +49,54 @@ int renvoie_message(int client_socket_fd, char *data)
  */
 int recois_envoie_message(int client_socket_fd, char *data)
 {
-  printf("Message reçu: %s\n", data);
-     int a, b, c;
+    printf("Message reçu: %s\n", data);
 
-    // sscanf extrait les trois premiers entiers
-    if (sscanf(data, "%d %d %d", &a, &b, &c) == 3)
+    char op;
+    int a, b;
+    int resultat;
+
+    // Extraire l'opération depuis la chaîne reçue
+    if (sscanf(data, "message: %c %d %d", &op, &a, &b) == 3)
     {
-        printf("Chiffres extraits : %d, %d, %d\n", a, b, c);
+        switch (op)
+        {
+        case '+':
+            resultat = a + b;
+            break;
+        case '-':
+            resultat = a - b;
+            break;
+        case '*':
+            resultat = a * b;
+            break;
+        case '/':
+            if (b != 0)
+                resultat = a / b;
+            else {
+                printf("Erreur : division par zéro\n");
+                return EXIT_FAILURE;
+            }
+            break;
+        default:
+            printf("Opérateur inconnu: %c\n", op);
+            return EXIT_FAILURE;
+        }
 
-        // Tu peux utiliser a, b, c comme tu veux ici
-        // Par exemple envoyer une réponse, faire un calcul, etc.
+        // Afficher le résultat sur le terminal serveur
+        printf("Résultat: %d\n", resultat);
 
-        return 0;
+        // Facultatif : renvoyer le résultat au client
+        char buffer[128];
+        snprintf(buffer, sizeof(buffer), "Résultat: %d\n", resultat);
+        write(client_socket_fd, buffer, strlen(buffer));
     }
     else
     {
-        fprintf(stderr, "Erreur : format inattendu\n");
-        return -1;
+        printf("Format de message invalide. Format attendu : '+ 25 15'\n");
     }
-}
 
+    return EXIT_SUCCESS;
+}
 /**
  * Gestionnaire de signal pour Ctrl+C (SIGINT).
  * @param signal : Le signal capturé (doit être SIGINT pour Ctrl+C).
