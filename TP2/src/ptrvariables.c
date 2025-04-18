@@ -17,7 +17,7 @@ int main() {
 
   // Affichage après manipulation
     printf("\nAprès manipulation :\n");
-    printf("Adresse de i  : %p, Valeur : 0x%02X\n", (void*)pi, (unsigned char)*pi);
+    printf("Adresse de i  : %p, Valeur : 0x%02X\n", (void*)pi, i);
 
     return 0;
 }
